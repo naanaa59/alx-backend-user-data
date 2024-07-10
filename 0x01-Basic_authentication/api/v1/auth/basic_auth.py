@@ -79,4 +79,4 @@ class BasicAuth(Auth):
                     if email is not None:
                         return self.user_object_from_credentials(
                             email, password)
-        return
+        return None
