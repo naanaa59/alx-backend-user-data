@@ -42,15 +42,13 @@ def b_request():
     ]
     if not auth.require_auth(request.path, excluded_paths):
         return
-
+    if auth.authorization_header(request) is None and\
+            auth.session_cookie(request) is None:
+        abort(401)
     current_usr = auth.current_user(request)
     if current_usr is None:
         abort(403)
-    if auth.authorization_header(request) is None:
-        abort(401)
     request.current_user = current_usr
-    if auth.authorization_header(request) and auth.session_cookie(request):
-        return None, abort(401)
 
 
 @app.errorhandler(404)
