@@ -4,7 +4,7 @@ Route module for the API
 """
 from os import getenv
 from api.v1.views import app_views
-from flask import Flask, jsonify, abort, request, g
+from flask import Flask, jsonify, abort, request
 from flask_cors import (CORS, cross_origin)
 import os
 from typing import Any
@@ -44,7 +44,7 @@ def b_request():
     current_usr = auth.current_user(request)
     if current_usr is None:
         abort(403)
-    g.current_user = current_usr
+    request.current_user = current_usr
 
 
 @app.errorhandler(404)
