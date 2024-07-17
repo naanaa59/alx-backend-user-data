@@ -55,9 +55,20 @@ class Auth:
         try:
             usr = self._db.find_user_by(email=email)
             if usr is not None:
-                uuid = _generate_uuid()
-                usr.session_id = uuid
-                return uuid
+                session_id = _generate_uuid()
+                usr.session_id = session_id
+                # self._db.update_user(usr.id, session_id=session_id)
+                return session_id
         except NoResultFound:
             return None
         return None
+
+    def get_user_from_session_id(self, session_id: str) -> User:
+        """ return a user based on a session id"""
+        if session_id is None:
+            return None
+        try:
+            user = self._db.find_user_by(session_id=session_id)
+        except NoResultFound:
+            return None
+        return user
