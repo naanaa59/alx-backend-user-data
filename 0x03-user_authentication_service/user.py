@@ -1,13 +1,17 @@
 #!/usr/bin/env python3
 """ a SQLAlchemy model named User for a database table named users"""
-from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy import Column, Integer, String
+from sqlalchemy.ext.declarative import declarative_base # type: ignore
+from sqlalchemy import Column, Integer, String # type: ignore
+from typing_extensions import TypeAlias
 
 
 Base = declarative_base()
 
+Alias: TypeAlias = Base # type: ignore
 
-class User(Base):
+
+class User(Base): # type: ignore
+
     """ User Class definiton
         id, the integer primary key
         email, a non-nullable string
