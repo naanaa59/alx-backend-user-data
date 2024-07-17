@@ -1,4 +1,4 @@
-"""DB module
+"""DB module documentations
 """
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
@@ -12,7 +12,7 @@ from typing import Optional
 
 
 class DB:
-    """DB class
+    """DB class defintion
     """
 
     def __init__(self) -> None:
