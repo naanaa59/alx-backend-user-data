@@ -56,13 +56,12 @@ class DB:
 
     def update_user(self, user_id: int, **arguments) -> None:
         """ updates a user with the passed args"""
-        usr = self.find_user_by(id=user_id)
+        try:
+            usr = self.find_user_by(id=user_id)
+        except NoResultFound:
+            raise ValueError
         for arg, val in arguments.items():
-            try:
-                usr_attr = getattr(usr, arg)
-            except AttributeError:
-                raise ValueError()
-            setattr(usr, usr_attr, val)
-        self._session.add(usr)
+            if hasattr(usr, arg):
+                setattr(usr, arg, val)
         self._session.commit()
         return None
