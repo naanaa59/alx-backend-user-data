@@ -1,11 +1,11 @@
 """DB module documentations
 """
-from sqlalchemy import create_engine
-from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import sessionmaker
-from sqlalchemy.orm.session import Session
-from sqlalchemy.orm.exc import NoResultFound
-from sqlalchemy.exc import InvalidRequestError
+from sqlalchemy import create_engine # type: ignore
+from sqlalchemy.ext.declarative import declarative_base # type: ignore
+from sqlalchemy.orm import sessionmaker # type: ignore
+from sqlalchemy.orm.session import Session # type: ignore
+from sqlalchemy.orm.exc import NoResultFound # type: ignore
+from sqlalchemy.exc import InvalidRequestError # type: ignore
 from user import Base
 from user import User
 from typing import Optional
