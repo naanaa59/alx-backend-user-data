@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 """DB module documentations: this module define DB class
 """
-from sqlalchemy import create_engine # type: ignore
-from sqlalchemy.ext.declarative import declarative_base # type: ignore
-from sqlalchemy.orm import sessionmaker # type: ignore
-from sqlalchemy.orm.session import Session # type: ignore
-from sqlalchemy.orm.exc import NoResultFound # type: ignore
-from sqlalchemy.exc import InvalidRequestError # type: ignore
+from sqlalchemy import create_engine   # type: ignore
+from sqlalchemy.ext.declarative import declarative_base   # type: ignore
+from sqlalchemy.orm import sessionmaker   # type: ignore
+from sqlalchemy.orm.session import Session   # type: ignore
+from sqlalchemy.orm.exc import NoResultFound   # type: ignore
+from sqlalchemy.exc import InvalidRequestError   # type: ignore
 from user import Base
 from user import User
 from typing import Optional
