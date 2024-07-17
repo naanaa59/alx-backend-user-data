@@ -63,5 +63,7 @@ class DB:
         for arg, val in arguments.items():
             if hasattr(usr, arg):
                 setattr(usr, arg, val)
+            else:
+                raise ValueError
         self._session.commit()
         return None
