@@ -1,4 +1,5 @@
-"""DB module documentations
+#!/usr/bin/env python3
+"""DB module documentations: this module define DB class
 """
 from sqlalchemy import create_engine # type: ignore
 from sqlalchemy.ext.declarative import declarative_base # type: ignore
@@ -12,7 +13,7 @@ from typing import Optional
 
 
 class DB:
-    """DB class defintion
+    """DB class defintion: The class where all methods are defined
     """
 
     def __init__(self) -> None:
