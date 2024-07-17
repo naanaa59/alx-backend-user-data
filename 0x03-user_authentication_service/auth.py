@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """ auth script defines _hash_password method for now """
-from bcrypt import hashpw, gensalt
+from bcrypt import hashpw, gensalt, checkpw
 from db import DB
 from user import User
 from sqlalchemy.orm.exc import NoResultFound
@@ -33,3 +33,13 @@ class Auth:
         except NoResultFound:
             user = self._db.add_user(email=email, hashed_password=hashed_pwd)
         return user
+
+    def valid_login(self, email: str, password: str) -> bool:
+        """ checks credentials validation"""
+        try:
+            usr = self._db.find_user_by(email=email)
+            if usr is not None:
+                return checkpw(password.encode('utf-8'), usr.hashed_password)
+        except NoResultFound:
+            return False
+        return False
