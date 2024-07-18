@@ -94,7 +94,8 @@ def update_password(email: str, reset_token: str, new_password: str) -> None:
         "reset_token": reset_token,
         "new_password": new_password
     }
-    response = requests.put("http://localhost:5000/reset_password", data=form_data)
+    response = requests.put("http://localhost:5000/reset_password",
+                            data=form_data)
     if response.status_code == 200:
         data = response.json()
         assert data["email"] == email
